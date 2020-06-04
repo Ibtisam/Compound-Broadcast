@@ -23,11 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
         intentFilter = new IntentFilter(CUSTOM_ACTION);
         //greater number - highest priority
-        intentFilter.setPriority(3);
+        //intentFilter.setPriority(1);
         registerReceiver(receiverA, intentFilter);
-        intentFilter.setPriority(1);
+        //intentFilter.setPriority(2);
         registerReceiver(receiverB, intentFilter);
-        intentFilter.setPriority(2);
+        //intentFilter.setPriority(3);
         registerReceiver(receiverC, intentFilter);
 
 
@@ -38,7 +38,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.setAction(CUSTOM_ACTION);
                 intent.putExtra("MESS", "Hello Receiver");
-                sendOrderedBroadcast(intent, null);
+                sendBroadcast(intent);
+                //sendOrderedBroadcast(intent, null);
             }
         });
     }
